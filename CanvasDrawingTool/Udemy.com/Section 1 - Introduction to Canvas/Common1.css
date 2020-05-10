@@ -1,0 +1,40 @@
+﻿* {
+    padding: 10px;
+}
+.elementName {
+    font-size: 40px;
+    font-weight: 700;
+    color: slateblue;
+} 
+.allHeadingTypes {
+    font-size: 25px;
+    font-weight: 600;
+}
+.allNameTypes {
+    font-size: 20px;
+    font-weight: 500;
+}
+.constructorHeading {
+    color: burlywood
+}
+.constructorName {
+    color: coral
+}
+.propertyHeading {
+    color: steelblue
+}
+.propertyName {
+    color: yellowgreen
+}
+.methodHeading {
+    color: blueviolet
+}
+.methodName {
+    color: cadetblue
+}
+.inheritanceHeading {
+    color: darkgrey
+}
+.inheritanceName {
+    color: chocolate
+}

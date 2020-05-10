@@ -1,0 +1,74 @@
+﻿<!--
+    Created by Akshay Srinivasan [akshays2112@gmail.com]
+    This javascript code is provided as is with no warranty implied.
+    Akshay Srinivasan is not liable or responsible for any consequence of
+    using this code in your applications.
+    You are free to use it and/or change it for both commercial and non-commercial
+    applications as long as you give credit to Akshay Srinivasan the creator
+    of this code.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,
+          minimum-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1,IE=EmulateIE9" />
+    <script src="WindowManager.js" type="text/javascript"></script>
+    <script src="VotingControl.js" type="text/javascript"></script>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <canvas id="canvas" width="800" height="800" tabindex="0"></canvas>
+            <script type="text/javascript">
+                var elemId = 'canvas';
+                registerCanvasElementId(elemId);
+                var vc1 = new VotingControl();
+                vc1.CanvasID = elemId;
+                vc1.ControlNameID = 'vc1';
+                vc1.Depth = highestDepth;
+                vc1.X = 10;
+                vc1.Y = 10;
+                vc1.Width = 300;
+                vc1.Height = 30;
+                vc1.NumStars = 5;
+                vc1.MaxValueOfAllStars = 10;
+                vc1.StarColorRed = 59;
+                vc1.StarColorGreen = 172;
+                vc1.StarColorBlue = 53;
+                vc1.StarColorAlpha = 255;
+                vc1.StarSizeInPixels = 0;
+                vc1.SpacingInPixelsBetweenStars = 5;
+                vc1.HasPartialStars = 1;
+                vc1.Editable = 0;
+                vc1.HasValueLabel = 1;
+                vc1.LabelXPos = 180;
+                vc1.LabelYPos = 21;
+                vc1.LabelTextColor = '#232323';
+                vc1.LabelTextFontString = '12pt Tahoma';
+                vc1.LabelTextHeight = 12;
+                vc1.StarsStartingPosOffsetWhenLabel = 0;
+                vc1.StarsYPosWhenLabel = 0;
+                vc1.InitialValue = 6.7;
+                vc1.OutlineThicknessOfEmptyStar = 1;
+                vc1.StarsOrientation = 0;
+                vc1.FillOrientation = 0;
+                vc1.IsCustomPattern = 1;
+                vc1.OutLineImgURL = './Images/duckoutline.png';
+                vc1.CustomFillPoint = [15, 13, 0, 0, 30, 26, 255, 255, 255, 255, 59, 172, 53, 255];
+                vc1.ImgWidth = 30;
+                vc1.ImgHeight = 26;
+                vc1.HasMouseOverLabel = 0;
+                vc1.StarOutlineBgColorRed = 255;
+                vc1.StarOutlineBgColorGreen = 255;
+                vc1.StarOutlineBgColorBlue = 255;
+                vc1.StarOutlineBgColorAlpha = 255;
+                vc1.Initialize();
+
+                invalidateRect(elemId, null, 0, 0, 800, 800);
+            </script>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,53 @@
+﻿<!--
+    Created by Akshay Srinivasan [akshays2112@gmail.com]
+    This javascript code is provided as is with no warranty implied.
+    Akshay Srinivasan is not liable or responsible for any consequence of
+    using this code in your applications.
+    You are free to use it and/or change it for both commercial and non-commercial
+    applications as long as you give credit to Akshay Srinivasan the creator
+    of this code.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,
+          minimum-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1,IE=EmulateIE9" />
+    <script src="WindowManager.js" type="text/javascript"></script>
+    <script src="RadarGraph.js" type="text/javascript"></script>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <canvas id="canvas" width="800" height="800" tabindex="0"></canvas>
+            <script type="text/javascript">
+                var elemId = 'canvas';
+                registerCanvasElementId(elemId);
+                var rg1 = new RadarGraph();
+                rg1.CanvasID = elemId;
+                rg1.ControlNameID = 'g1';
+                rg1.X = 10;
+                rg1.Y = 10;
+                rg1.Width = 420;
+                rg1.Height = 450;
+                rg1.Depth = highestDepth;
+                rg1.Data = [10, 20, 30, 40, 50, 60];
+                rg1.MaxValue = 60;
+                rg1.ColorStr = '#A0A0FF';
+                rg1.NumMarks = 6;
+                rg1.Title = 'Calculus % Grade Students Distrubution';
+                rg1.TitleTextColor = '#A0FFA0';
+                rg1.TitleTextHeight = 14;
+                rg1.TitleTextFontString = '14pt Tahoma';
+                rg1.MarkLabelTextColor = '#FFA0A0';
+                rg1.MarkLabelTextHeight = 12;
+                rg1.MarkLabelTextFontString = '12pt Tahoma';
+                rg1.Initialize();
+
+                invalidateRect(elemId, null, 0, 0, 800, 800);
+            </script>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,58 @@
+﻿<!--
+    Created by Akshay Srinivasan [akshays2112@gmail.com]
+    This javascript code is provided as is with no warranty implied.
+    Akshay Srinivasan is not liable or responsible for any consequence of
+    using this code in your applications.
+    You are free to use it and/or change it for both commercial and non-commercial
+    applications as long as you give credit to Akshay Srinivasan the creator
+    of this code.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,
+          minimum-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1,IE=EmulateIE9" />
+    <script src="WindowManager.js" type="text/javascript"></script>
+    <script src="LineAreaGraph.js" type="text/javascript"></script>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <canvas id="canvas" width="800" height="800" tabindex="0"></canvas>
+            <script type="text/javascript">
+                var elemId = 'canvas';
+                registerCanvasElementId(elemId);
+                var lag1 = new LineAreaGraph();
+                lag1.CanvasID = elemId;
+                lag1.ControlNameID = 'lag1';
+                lag1.X = 10;
+                lag1.Y = 10;
+                lag1.Width = 420;
+                lag1.Height = 450;
+                lag1.Depth = highestDepth;
+                lag1.Data = [[[10, [20, 30, 10]], [20, [50, 30, 20]], [30, [20, 40, 30]], [40, [10, 20, 40]],
+                [50, [20, 20, 10]], [60, [40, 40, 20]], [70, [50, 10, 10]], [80, [10, 20, 10]],
+                [90, [20, 30, 10]], [100, [40, 20, 10]]], ['#FF0000', '#00FF00', '#0000FF']];
+                lag1.XMaxValue = 100;
+                lag1.YMaxValue = 100;
+                lag1.NumMarksX = 5;
+                lag1.NumMarksY = 5;
+                lag1.Title = 'Calculus Average Grade % Per Professor';
+                lag1.TitleTextColor = '#A0A0FF';
+                lag1.TitleTextHeight = 14;
+                lag1.TitleTextFontString = '14pt Tahoma';
+                lag1.AxisLabelsColor = '#232323';
+                lag1.AxisLabelsHeight = 12;
+                lag1.AxisLabelsFontString = '12pt Tahoma';
+                lag1.MarginLeft = 50;
+                lag1.IsLabledOnXAxis = 0;
+                lag1.Initialize();
+
+                invalidateRect(elemId, null, 0, 0, 800, 800);
+            </script>
+        </div>
+    </form>
+</body>
+</html>

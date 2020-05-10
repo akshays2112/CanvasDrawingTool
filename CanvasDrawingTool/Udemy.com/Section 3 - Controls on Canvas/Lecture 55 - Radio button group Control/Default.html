@@ -1,0 +1,47 @@
+﻿<!--
+    Created by Akshay Srinivasan [akshays2112@gmail.com]
+    This javascript code is provided as is with no warranty implied.
+    Akshay Srinivasan is not liable or responsible for any consequence of
+    using this code in your applications.
+    You are free to use it and/or change it for both commercial and non-commercial
+    applications as long as you give credit to Akshay Srinivasan the creator
+    of this code.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,
+          minimum-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1,IE=EmulateIE9" />
+    <script src="WindowManager.js" type="text/javascript"></script>
+    <script src="RadioButtonGroup.js" type="text/javascript"></script>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <canvas id="canvas" width="800" height="800" tabindex="0"></canvas>
+            <script type="text/javascript">
+                var elemId = 'canvas';
+                registerCanvasElementId(elemId);
+                var rbg1 = new RadioButtonGroup();
+                rbg1.CanvasID = elemId;
+                rbg1.ControlNameID = 'rbg1';
+                rbg1.X = 10;
+                rbg1.Y = 10;
+                rbg1.Depth = highestDepth;
+                rbg1.GroupName = 'VotedFor';
+                rbg1.Labels = ['Akshay', 'John', 'Bill', 'Jane', 'Bob', 'Jill'];
+                rbg1.LabelTextColor = '#a0a0a0';
+                rbg1.LabelFontString = '16pt Tahoma';
+                rbg1.LabelTextHeight = 16;
+                rbg1.SelectedID = -1;
+                rbg1.Radius = 10;
+                rbg1.Initialize();
+
+                invalidateRect(elemId, null, 0, 0, 800, 800);
+            </script>
+        </div>
+    </form>
+</body>
+</html>

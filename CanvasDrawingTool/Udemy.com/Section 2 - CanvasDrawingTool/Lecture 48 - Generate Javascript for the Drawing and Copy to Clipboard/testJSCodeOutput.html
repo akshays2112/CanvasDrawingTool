@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <canvas id="canvas" width="1800" height="800"></canvas>
+    <script>
+        var myDrawingPoints = new Array(), myDrawingPointsColors = new Array(), myDrawingEllipses = new Array(), myDrawingEllipsesColors = new Array(), myDrawingTexts = new Array(), myDrawingTextsColors = new Array(), myDrawingCurves = new Array(), myDrawingCurvesColors = new Array(), myDrawingBezierCurves = new Array(), myDrawingBezierCurvesColors = new Array();
+        myDrawingEllipses = [{ CenterX: 476, CenterY: 329.1499938964844, SemiMajorAxisLength: 256, SemiMinorAxisLength: 95, Angle: 0, StartAngle: 0, EndAngle: 2 * Math.PI }, { CenterX: 540, CenterY: 281.1499938964844, SemiMajorAxisLength: 331, SemiMinorAxisLength: 125, Angle: 0, StartAngle: 0, EndAngle: 2 * Math.PI }, { CenterX: 444, CenterY: 561.1499938964844, SemiMajorAxisLength: 301, SemiMinorAxisLength: 116, Angle: 0, StartAngle: 0, EndAngle: 2 * Math.PI }, { CenterX: 729, CenterY: 580.1499938964844, SemiMajorAxisLength: 293, SemiMinorAxisLength: 87, Angle: 0, StartAngle: 0, EndAngle: 2 * Math.PI }, { CenterX: 1214, CenterY: 414.6499938964844, SemiMajorAxisLength: 252, SemiMinorAxisLength: 79.5, Angle: 0.6962380875955609, StartAngle: 0, EndAngle: 2 * Math.PI }];
+        myDrawingEllipsesColors = [{ Idx: 0, Color: '#000000' }, { Idx: 1, Color: '#000000' }, { Idx: 2, Color: '#000000' }, { Idx: 3, Color: '#000000' }, { Idx: 4, Color: '#000000' }];
+        c = document.getElementById('canvas');
+        ctx = c.getContext('2d');
+        for (var i = 0; i < myDrawingPoints.length; i++) {
+            if (myDrawingPoints[i].length > 1) {
+                ctx.beginPath();
+                ctx.moveTo(myDrawingPoints[i][0].x, myDrawingPoints[i][0].y);
+                for (var j = 1; j < myDrawingPoints[i].length; j++) {
+                    ctx.lineTo(myDrawingPoints[i][j].x, myDrawingPoints[i][j].y);
+                }
+                var setColor = false;
+                for (var r = 0; r < myDrawingPointsColors.length; r++) {
+                    if (myDrawingPointsColors[r].Idx === i) {
+                        ctx.strokeStyle = myDrawingPointsColors[r].Color;
+                        setColor = true;
+                        break;
+                    }
+                }
+                if (!setColor) {
+                    ctx.strokeStyle = '#000000';
+                }
+                ctx.stroke();
+            }
+        }
+        for (var t = 0; t < myDrawingEllipses.length; t++) {
+            ctx.beginPath();
+            ctx.ellipse(myDrawingEllipses[t].CenterX,
+                myDrawingEllipses[t].CenterY,
+                myDrawingEllipses[t].SemiMajorAxisLength,
+                myDrawingEllipses[t].SemiMinorAxisLength,
+                myDrawingEllipses[t].Angle, myDrawingEllipses[t].StartAngle, myDrawingEllipses[t].EndAngle, 0);
+            var setColor2 = false;
+            for (var q = 0; q < myDrawingEllipsesColors.length; q++) {
+                if (myDrawingEllipsesColors[q].Idx === t) {
+                    ctx.strokeStyle = myDrawingEllipsesColors[q].Color;
+                    setColor2 = true;
+                    break;
+                }
+            }
+            if (!setColor2) {
+                ctx.strokeStyle = '#000000';
+            }
+            ctx.stroke();
+        }
+        for (var d = 0; d < myDrawingTexts.length; d++) {
+            var setColor3 = false;
+            for (var u = 0; u < myDrawingTextsColors.length; u++) {
+                if (myDrawingTextsColors[u].Idx === d) {
+                    ctx.fillStyle = myDrawingTextsColors[u].Color;
+                    setColor3 = true;
+                    break;
+                }
+            }
+            if (!setColor3) {
+                ctx.fillStyle = '#000000';
+            }
+            ctx.font = myDrawingTexts[d].FontSize + 'px ' + myDrawingTexts[d].FontName;
+            ctx.save();
+            ctx.translate(myDrawingTexts[d].X + myDrawingTexts[d].Width / 2, myDrawingTexts[d].Y + myDrawingTexts[d].FontSize / 2);
+            if (myDrawingTexts[d].Angle !== 0) {
+                if (myDrawingTexts[d].Angle < 0) {
+                    ctx.rotate(2 * Math.PI + myDrawingTexts[d].Angle);
+                } else {
+                    ctx.rotate(myDrawingTexts[d].Angle);
+                }
+            }
+            if (myDrawingTexts[d].FlipHorizontal) {
+                ctx.scale(-1, 1);
+            }
+            if (myDrawingTexts[d].FlipVertical) {
+                ctx.scale(1, -1);
+            }
+            ctx.fillText(myDrawingTexts[d].Value, -myDrawingTexts[d].Width / 2, -myDrawingTexts[d].FontSize / 2);
+            ctx.restore();
+        }
+        for (var a = 0; a < myDrawingCurves.length; a++) {
+            ctx.beginPath();
+            ctx.moveTo(myDrawingCurves[a].StartX, myDrawingCurves[a].StartY);
+            ctx.quadraticCurveTo(myDrawingCurves[a].ControlPointX, myDrawingCurves[a].ControlPointY, myDrawingCurves[a].EndX, myDrawingCurves[a].EndY);
+            var setColor4 = false;
+            for (var g = 0; g < myDrawingCurvesColors.length; g++) {
+                if (myDrawingCurvesColors[g].Idx === a) {
+                    ctx.strokeStyle = myDrawingCurvesColors[g].Color;
+                    setColor4 = true;
+                    break;
+                }
+            }
+            if (!setColor4) {
+                ctx.strokeStyle = '#000000';
+            }
+            ctx.stroke();
+        }
+        for (var a = 0; a < myDrawingBezierCurves.length; a++) {
+            ctx.beginPath();
+            ctx.moveTo(myDrawingBezierCurves[a].StartX, myDrawingBezierCurves[a].StartY);
+            ctx.bezierCurveTo(myDrawingBezierCurves[a].ControlPoint1X, myDrawingBezierCurves[a].ControlPoint1Y, myDrawingBezierCurves[a].ControlPoint2X, myDrawingBezierCurves[a].ControlPoint2Y, myDrawingBezierCurves[a].EndX, myDrawingBezierCurves[a].EndY);
+            var setColor4 = false;
+            for (var g = 0; g < myDrawingBezierCurvesColors.length; g++) {
+                if (myDrawingBezierCurvesColors[g].Idx === a) {
+                    ctx.strokeStyle = myDrawingBezierCurvesColors[g].Color;
+                    setColor4 = true;
+                    break;
+                }
+            }
+            if (!setColor4) {
+                ctx.strokeStyle = '#000000';
+            }
+            ctx.stroke();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+﻿<!--
+    Created by Akshay Srinivasan [akshays2112@gmail.com]
+    This javascript code is provided as is with no warranty implied.
+    Akshay Srinivasan is not liable or responsible for any consequence of
+    using this code in your applications.
+    You are free to use it and/or change it for both commercial and non-commercial
+    applications as long as you give credit to Akshay Srinivasan the creator
+    of this code.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,
+          minimum-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1,IE=EmulateIE9" />
+    <script src="WindowManager.js" type="text/javascript"></script>
+    <script src="PieChart.js" type="text/javascript"></script>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <canvas id="canvas" width="800" height="800" tabindex="0"></canvas>
+            <script type="text/javascript">
+                var elemId = 'canvas';
+                registerCanvasElementId(elemId);
+                var pc1 = new PieChart();
+                pc1.CanvasID = elemId;
+                pc1.ControlNameID = 'pc1';
+                pc1.X = 10;
+                pc1.Y = 10;
+                pc1.Width = 500;
+                pc1.Height = 400;
+                pc1.Depth = highestDepth;
+                pc1.Data = [['Akshay', 98, '#A0A0FF'], ['Brian', 100, '#FFA0A0'], ['Matt', 80, '#A0FFA0']];
+                pc1.Title = 'Caluculus Grade %';
+                pc1.TitleTextColor = '#A0A0A0';
+                pc1.TitleTextHeight = 14;
+                pc1.TitleTextFontString = '14pt Tahoma';
+                pc1.LabelTextColor = '#232323';
+                pc1.LabelTextHeight = 12;
+                pc1.LabelTextFontString = '12pt Tahoma';
+                pc1.SliceClickFunction = function (canvasid, windowid, i) {
+                    alert(i);
+                };
+                pc1.Initialize();
+
+                invalidateRect(elemId, null, 0, 0, 800, 800);
+            </script>
+        </div>
+    </form>
+</body>
+</html>

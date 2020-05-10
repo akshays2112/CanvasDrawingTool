@@ -1,0 +1,76 @@
+﻿<!--
+    Created by Akshay Srinivasan [akshays2112@gmail.com]
+    This javascript code is provided as is with no warranty implied.
+    Akshay Srinivasan is not liable or responsible for any consequence of
+    using this code in your applications.
+    You are free to use it and/or change it for both commercial and non-commercial
+    applications as long as you give credit to Akshay Srinivasan the creator
+    of this code.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,
+          minimum-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1,IE=EmulateIE9" />
+    <script src="WindowManager.js" type="text/javascript"></script>
+    <script src="Calendar.js" type="text/javascript"></script>
+    <script src="DatePicker.js" type="text/javascript"></script>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <canvas id="canvas" width="800" height="800" tabindex="0"></canvas>
+            <script type="text/javascript">
+                var elemId = 'canvas';
+                registerCanvasElementId(elemId);
+                var dp1 = new DatePicker();
+                dp1.CanvasID = elemId;
+                dp1.ControlNameID = 'dp1';
+                dp1.X = 10;
+                dp1.Y = 10;
+                dp1.Width = 358;
+                dp1.Height = 20;
+                dp1.Depth = highestDepth;
+                dp1.TextBoxAreaTextColor = '#C0C0C0';
+                dp1.TextBoxAreaTextHeight = 14;
+                dp1.TextBoxAreaTextFontString = '14pt Tahoma';
+                dp1.CalendarHeight = 400;
+                dp1.VisibleMonth = 'February';
+                dp1.VisibleYear = 2018;
+                dp1.SelectedDay = '13 February 2018';
+                dp1.DayCellWidth = 50;
+                dp1.DayCellHeight = 50;
+                dp1.HeaderHeight = 50;
+                dp1.TextHeaderColor = '#a0a0FF';
+                dp1.TextHeaderHeight = 20;
+                dp1.TextHeaderFontString = '20pt Tahoma';
+                dp1.DayDateActiveColor = '#a0FFa0';
+                dp1.DayDateActiveTextHeight = 14;
+                dp1.DayDateActiveTextFontString = '14pt Tahoma';
+                dp1.DayDateInactiveTextColor = '#FFa0a0';
+                dp1.DayDateInactiveTextHeight = 12;
+                dp1.DayDateInactiveTextFontString = '12pt Tahoma';
+                dp1.SelectedDayTextColor = '#FFa0a0';
+                dp1.SelectedDayTextHeight = 16;
+                dp1.SelectedDayTextFontString = '16pt Tahoma';
+                dp1.SelectedDayHighLightColor = '#FFD0D0';
+                dp1.TodayTextColor = '#00D0FF';
+                dp1.TodayTextHeight = 14;
+                dp1.TodayTextFontString = '14pt Tahoma';
+                dp1.TodayHighLightColor = '#00FFFF';
+                dp1.HeaderBackgroundColor = '#E0E0F0';
+                dp1.BodyBackgroundColor = '#F0F0F0';
+                dp1.MouseOverHightLightColor = '#FFFF80';
+                dp1.DayLabelTextColor = '#FFFFF0';
+                dp1.DayLabelTextHeight = 12;
+                dp1.DayLabelTextFontString = '12pt Tahoma';
+                dp1.Initialize();
+
+                invalidateRect(elemId, null, 0, 0, 800, 800);
+            </script>
+        </div>
+    </form>
+</body>
+</html>

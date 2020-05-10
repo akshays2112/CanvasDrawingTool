@@ -1,0 +1,115 @@
+﻿<!--
+    Created by Akshay Srinivasan [akshays2112@gmail.com]
+    This javascript code is provided as is with no warranty implied.
+    Akshay Srinivasan is not liable or responsible for any consequence of
+    using this code in your applications.
+    You are free to use it and/or change it for both commercial and non-commercial
+    applications as long as you give credit to Akshay Srinivasan the creator
+    of this code.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,
+          minimum-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1,IE=EmulateIE9" />
+    <script src="WindowManager.js" type="text/javascript"></script>
+    <script src="TabControl.js" type="text/javascript"></script>
+    <script src="Label.js" type="text/javascript"></script>
+    <script src="Panel.js" type="text/javascript"></script>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <canvas id="canvas" width="800" height="800" tabindex="0"></canvas>
+            <script type="text/javascript">
+                var elemId = 'canvas';
+                registerCanvasElementId(elemId);
+                var tc1 = new TabControl();
+                tc1.CanvasID = elemId;
+                tc1.ControlNameID = 'tc1';
+                tc1.X = 10;
+                tc1.Y = 10;
+                tc1.Width = 420;
+                tc1.Height = 450;
+                tc1.Depth = highestDepth;
+                tc1.TabLabels = ['Tab 1', 'Tab 2', 'Tab 3'];
+                tc1.TabLabelColor = '#232323';
+                tc1.TabLabelHeight = 14;
+                tc1.TabLabelFontString = '14pt Tahoma';
+                tc1.TabLabelGradientStartColor = '#A0A0A0';
+                tc1.TabLabelGradientEndColor = '#A0A0FF';
+                tc1.PanelHasBorder = 1;
+                tc1.PanelBorderColor = '#808080';
+                tc1.PanelHasBackgroundGradient = 1;
+                tc1.panelBackgroundStartColor = '#A0A0A0';
+                tc1.panelBackgroundEndColor = '#A0FFA0';
+                tc1.selectedTabID = 0;
+                tc1.GapBetweenTabs = 3;
+                tc1.SelectedTabBorderColor = '#121212';
+                tc1.SelectedTabBorderLineWidth = 1;
+                var tc1WindowID = tc1.Initialize();
+
+                var tc1Props = getTabProps(elemId, tc1WindowID);
+
+                var label1 = new Label();
+                label1.CanvasID = elemId;
+                label1.ControlNameID = 'label1';
+                label1.X = 50;
+                label1.Y = 50;
+                label1.Width = 300;
+                label1.Height = 40;
+                label1.Text = 'Label Control on Tab 1';
+                label1.TextColor = '#FFFFFF';
+                label1.TextFontString = '20px Tahoma';
+                label1.TextHeight = 20;
+                label1.BackGroundColor = '#202020';
+                label1.Alignment = 'center';
+                label1.AutoAdjustWidth = 0;
+                var label1WindowID = label1.Initialize();
+
+                registerChildWindow(elemId, label1WindowID, tc1Props.PanelWindowIDs[0]);
+
+                var label2 = new Label();
+                label2.CanvasID = elemId;
+                label2.ControlNameID = 'label2';
+                label2.X = 50;
+                label2.Y = 50;
+                label2.Width = 300;
+                label2.Height = 40;
+                label2.Text = 'Label Control on Tab 2';
+                label2.TextColor = '#FF00FF';
+                label2.TextFontString = '20px Tahoma';
+                label2.TextHeight = 20;
+                label2.BackGroundColor = '#202020';
+                label2.Alignment = 'center';
+                label2.AutoAdjustWidth = 0;
+                var label2WindowID = label2.Initialize();
+
+                registerChildWindow(elemId, label2WindowID, tc1Props.PanelWindowIDs[1]);
+
+                var label3 = new Label();
+                label3.CanvasID = elemId;
+                label3.ControlNameID = 'label3';
+                label3.X = 50;
+                label3.Y = 50;
+                label3.Width = 300;
+                label3.Height = 40;
+                label3.Text = 'Label Control on Tab 3';
+                label3.TextColor = '#00FFFF';
+                label3.TextFontString = '20px Tahoma';
+                label3.TextHeight = 20;
+                label3.BackGroundColor = '#202020';
+                label3.Alignment = 'center';
+                label3.AutoAdjustWidth = 0;
+                var label3WindowID = label3.Initialize();
+
+                registerChildWindow(elemId, label3WindowID, tc1Props.PanelWindowIDs[2]);
+
+                invalidateRect(elemId, null, 0, 0, 800, 800);
+            </script>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,99 @@
+﻿<!--
+    Created by Akshay Srinivasan [akshays2112@gmail.com]
+    This javascript code is provided as is with no warranty implied.
+    Akshay Srinivasan is not liable or responsible for any consequence of
+    using this code in your applications.
+    You are free to use it and/or change it for both commercial and non-commercial
+    applications as long as you give credit to Akshay Srinivasan the creator
+    of this code.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,
+          minimum-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1,IE=EmulateIE9" />
+    <script src="WindowManager.js" type="text/javascript"></script>
+    <script src="Grid.js" type="text/javascript"></script>
+    <script src="Scrollbar.js" type="text/javascript"></script>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <canvas id="canvas" width="800" height="800" tabindex="0"></canvas>
+            <script type="text/javascript">
+                var elemId = 'canvas';
+                registerCanvasElementId(elemId);
+                var grid1 = new Grid();
+                grid1.CanvasID = elemId;
+                grid1.ControlNameID = 'grid1';
+                grid1.X = 10;
+                grid1.Y = 10;
+                grid1.Width = 600;
+                grid1.Height = 600;
+                grid1.RowData = [
+                    ['Akshay', 'Srinivasan', 'Programmer'],
+                    ['Bill', 'Johnson', 'Architect'],
+                    ['Susan', 'Deloitte', 'Consultant']
+                ];
+                grid1.HeaderData = ['First Name', 'Last Name', 'Profession'];
+                grid1.RowDataTextColor = '#FFFFFF';
+                grid1.RowDataTextFontString = '30px Tahoma';
+                grid1.HeaderDataTextColor = '#FFFFFF';
+                grid1.HeaderDataTextHeight = 35;
+                grid1.HeaderDataTextFontString = '35px Sans Serif';
+                grid1.CellClickFunction = function (canvasid, windowid, column, row) {
+                    alert('You clicked the cell at column ' + column + ' and row ' + row);
+                };
+                grid1.DataRowHeight = 50;
+                grid1.ColumnWidthArray = [200, 200, 200];
+                grid1.HeaderRowHeight = 100;
+                grid1.HasBorder = 1;
+                grid1.BorderColor = '#404040';
+                grid1.BorderLineWidth = 2;
+                grid1.VScrollBarWindowId = null;
+                grid1.HScrollBarWindowId = null;
+                grid1.HeaderBackgroundStartColor = '#202020';
+                grid1.HeaderBackgroundEndColor = '#404040';
+                grid1.AltRowBgColorStart1 = '#D8D8D8';
+                grid1.AltRowBgColorEnd1 = '#E2E2E2';
+                grid1.AltRowBgColorStart2 = '#A0A0A0';
+                grid1.AltRowBgColorEnd2 = '#A3A3A3';
+                grid1.Tag = null;
+                grid1.HasSelectedRow = 0;
+                grid1.SelectedRowBgColor = '#00A000';
+                grid1.HasSelectedCell = 0;
+                grid1.SelectedCellBgColor = '#FFFFA0';
+                grid1.SelectedRow = -1;
+                grid1.SelectedCell = -1;
+                grid1.HasSorting = 0;
+                grid1.SortableColumnsArray = new Array();
+                grid1.HasSortImages = 0;
+                grid1.SortImageURLsArray = new Array();
+                grid1.SortImageShowIndex = -1;
+                grid1.SortedData = new Array();
+                grid1.CustomSortFunction = null;
+                grid1.HasFilters = 0;
+                grid1.FilterColumnsArray = new Array();
+                grid1.HasFilterImageIcon = 0;
+                grid1.FilterImageIcon = '';
+                grid1.FilteredData = new Array();
+                grid1.SortClickExtents = new Array();
+                grid1.HasUIDs = 0;
+                grid1.UIDs = new Array();
+                grid1.ControlNameID = null;
+                grid1.DrawHeaderCellFunction = null;
+                grid1.DrawRowDataCellFunction = null;
+                grid1.RowDataTextHeight = 30;
+                grid1.Depth = highestDepth;
+                grid1.TabStopIndex = null;
+
+                grid1.Initialize();
+
+                invalidateRect(elemId, null, 0, 0, 800, 800);
+            </script>
+        </div>
+    </form>
+</body>
+</html>

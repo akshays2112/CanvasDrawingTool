@@ -1,0 +1,58 @@
+﻿<!--
+    Created by Akshay Srinivasan [akshays2112@gmail.com]
+    This javascript code is provided as is with no warranty implied.
+    Akshay Srinivasan is not liable or responsible for any consequence of
+    using this code in your applications.
+    You are free to use it and/or change it for both commercial and non-commercial
+    applications as long as you give credit to Akshay Srinivasan the creator
+    of this code.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,
+          minimum-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1,IE=EmulateIE9" />
+    <script src="WindowManager.js" type="text/javascript"></script>
+    <script src="XMLViewer.js" type="text/javascript"></script>
+    <script src="Treeview.js" type="text/javascript"></script>
+    <script src="Scrollbar.js" type="text/javascript"></script>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <canvas id="canvas" width="800" height="800" tabindex="0"></canvas>
+            <script type="text/javascript">
+                var elemId = 'canvas';
+                registerCanvasElementId(elemId);
+                var xmlv1 = new XMLViewer();
+                xmlv1.CanvasID = elemId;
+                xmlv1.ControlNameID = 'xmlv1';
+                xmlv1.Depth = highestDepth;
+                xmlv1.X = 10;
+                xmlv1.Y = 10;
+                xmlv1.Width = 500;
+                xmlv1.Height = 500;
+                xmlv1.XML = '<root><Databases><Employees><Tables><Employee><Column ColumnName="id">1</Column>' +
+                    '<Column ColumnName="FirstName">Akshay</Column><Column ColumnName="MiddleName">' +
+                    '</Column><Column ColumnName="LastName">Srinivasan</Column><Column ColumnName=' +
+                    '"EmpId">42312345672892</Column ></Employee></Tables></Employees ></Databases>' +
+                    '</root> ';
+                xmlv1.TextColor = '#232323';
+                xmlv1.TextFontString = '12pt Tahoma';
+                xmlv1.TextHeight = 12;
+                xmlv1.HasIcons = 1;
+                xmlv1.IconWidth = 16;
+                xmlv1.IconHeight = 16;
+                xmlv1.ImgURLNode = './Images/Node.png';
+                xmlv1.ImgURLValue = './Images/Value.png';
+                xmlv1.ImgURLAttribute = './Images/Attribute.png';
+                xmlv1.Initialize();
+
+                invalidateRect(elemId, null, 0, 0, 800, 800);
+            </script>
+        </div>
+    </form>
+</body>
+</html>

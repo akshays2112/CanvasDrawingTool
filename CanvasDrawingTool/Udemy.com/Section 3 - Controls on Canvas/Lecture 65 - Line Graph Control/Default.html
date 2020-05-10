@@ -1,0 +1,61 @@
+﻿<!--
+    Created by Akshay Srinivasan [akshays2112@gmail.com]
+    This javascript code is provided as is with no warranty implied.
+    Akshay Srinivasan is not liable or responsible for any consequence of
+    using this code in your applications.
+    You are free to use it and/or change it for both commercial and non-commercial
+    applications as long as you give credit to Akshay Srinivasan the creator
+    of this code.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,
+          minimum-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1,IE=EmulateIE9" />
+    <script src="WindowManager.js" type="text/javascript"></script>
+    <script src="LineGraph.js" type="text/javascript"></script>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <canvas id="canvas" width="800" height="800" tabindex="0"></canvas>
+            <script type="text/javascript">
+                var elemId = 'canvas';
+                registerCanvasElementId(elemId);
+                var lg1 = new LineGraph();
+                lg1.CanvasID = elemId;
+                lg1.ControlNameID = 'lg1';
+                lg1.X = 10;
+                lg1.Y = 10;
+                lg1.Width = 600;
+                lg1.Height = 500;
+                lg1.Depth = highestDepth;
+                lg1.Data = [[[[10, 80], [20, 50], [30, 75], [40, 34], [50, 20], [60, 80], [70, 68], [80, 90], [90, 45]],
+                    '#00FF00'], [[[10, 45], [20, 70], [30, 35], [40, 64], [50, 50], [60, 30],
+                    [70, 40], [80, 70], [90, 90]], '#FF0000']];
+                lg1.XMaxValue = 100;
+                lg1.NumMarksX = 10;
+                lg1.YMaxValue = 100;
+                lg1.NumMarksY = 10;
+                lg1.Title = 'Number of Students in Calculas Class Vs. Average Grade';
+                lg1.TitleTextColor = '#A0A0FF';
+                lg1.TitleTextHeight = 14;
+                lg1.TitleTextFontString = '14pt Tahoma';
+                lg1.AxisLabelsTextColor = '#232323';
+                lg1.AxisLabelsTextHeight = 12;
+                lg1.AxisLabelsTextFontString = '12pt Tahoma';
+                lg1.MarginLeft = 100;
+                lg1.IsLabeledXValues = 0;
+                lg1.ClickFunction = function (canvasid, windowid, i) {
+                    alert(i);
+                };
+                lg1.Initialize();
+
+                invalidateRect(elemId, null, 0, 0, 800, 800);
+            </script>
+        </div>
+    </form>
+</body>
+</html>
